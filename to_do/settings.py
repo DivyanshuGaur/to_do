@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'to_do.wsgi.application'
+#WSGI_APPLICATION = 'to_do.wsgi.application'
 
 
 # Database
@@ -86,7 +86,9 @@ DATABASES = {
         'ENGINE': 'djongo',
         'NAME': 'ToDo',    
         'CLIENT': {
-                    'host': config('Url')
+                    'host': config('Url'),
+                    'authMechanism': 'SCRAM-SHA-1'
+
         },   
     
     
@@ -140,4 +142,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
